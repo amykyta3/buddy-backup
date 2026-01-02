@@ -1,0 +1,24 @@
+name: backup-server
+
+services:
+  backup-server:
+    container_name: backup-server
+    build: ./backup_server_image
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
+      # Store host keys outside of the container so that rebuilding the
+      # image doesn't result in MITM warnings
+      - ${HOST_KEYS_DIR}:/etc/ssh/host_keys
+
+      # Map the container's home directory to a host location
+      # This is where all backup data will be stored
+      - ${BACKUP_DATA_HOMEDIR}:/home
+    ports:
+      - ${SSH_PORT}:22
+
+    # Do not update using watchtower. Image is built locally
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"

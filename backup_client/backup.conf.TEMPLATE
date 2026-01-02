@@ -1,0 +1,13 @@
+# Passphrase to use when encrypting your data before sending it to the remote server
+encryption_password="my-really-awesome-passphrase"
+
+# How to access the server
+server_hostname=servername.com
+server_port=22
+server_login=username
+
+# List of directories to include in the backup
+backup_dirs="
+    /path/to/my/files/
+    /path/to/more/files/
+"
