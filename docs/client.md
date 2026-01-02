@@ -24,6 +24,12 @@ ssh alice@their_server_domain.com -p 60022
 
 * Rename `backup.conf.TEMPLATE` --> `backup.conf`
 * Modify `backup.conf` with your settings
+* Fix execute permissions if needed:
+
+```bash
+chmod +x first_time_init.sh backup.sh restore.sh
+```
+
 
 ## 2. Set up gocryptfs's encryption key
 

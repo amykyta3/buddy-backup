@@ -7,6 +7,7 @@ server_port=22
 server_login=username
 
 # List of directories to include in the backup
+# IMPORTANT: make sure paths are unique and do not "overlap" in any way
 backup_dirs="
     /path/to/my/files/
     /path/to/more/files/
